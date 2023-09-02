@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="css.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Titel der Webseite -->
+  <title>TODO App</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body style="background-color: #ABC0E4;">
+  <div class="container py-5">
+    <div class="card">
+      <div class="card-body">
+        <!-- TItel der TODO-Liste -->
+        <h1 class="card-title text-primary text-center mb-4">
+          <i class="fas fa-check-square me-1"></i>
+          <u>ToDo-Liste</u>
+        </h1>
+        <!-- Eingabefeld und Hinzufügen-Button für neue Aufgaben -->
+        <div class="mb-2">
+          <div class="input-group">
+            <input type="text" class="form-control form-control-lg" placeholder="Neue Aufgabe hinzufügen..."
+              id="taskInput" required>
+            <button class="btn btn-primary" type="button" id="addTaskBtn">Hinzufügen</button>
+          </div>
+        </div>
+        
+        <hr class="my-4">
+        <!-- Eingabefeld und Such-Button für die Suche nach Aufgaben -->
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Nach Aufgaben suchen..." id="searchInput" required>
+          <button class="btn btn-outline-secondary" type="button" id="searchBtn"><i class="fas fa-search"></i></button>
+        </div>
+        <!-- Dropdown-Menü für das Sortieren der Aufgaben -->
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="sortSelect">Sortieren nach:</label>
+          <select class="form-select" id="sortSelect" required>
+            <option value="" disabled selected hidden>Wähle eine Option aus</option>
+            <option value="priority">Priorität</option>
+            <option value="important">Wichtigkeit</option>
+            <option value="alphabetical">Alphabetisch</option>
+          </select>
+        </div>
+        <!-- Eingabefelder für Aufgabenbeschreibung, Kürzel, Wichtigkeit, Dringlichkeit, Priorität, Start- und Enddatum, Prozentzahl -->
+        <div class="row">
+          <div class="col">
+            <label for="descriptionInput" class="form-label">Beschreibung:</label>
+            <input type="text" class="form-control" id="descriptionInput" required>
+          </div>
+          <div class="col">
+            <label for="initialsInput" class="form-label">Kürzel:</label>
+            <input type="text" class="form-control" id="initialsInput" required>
+          </div>
+          <div class="col">
+            <label for="importantCheck" class="form-label">Wichtig:</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="importantCheck">
+            </div>
+          </div>
+          <div class="col">
+            <label for="urgentCheck" class="form-label">Dringend:</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="urgentCheck">
+            </div>
+          </div>
+          <div class="col">
+            <label for="starsInput" class="form-label">Priorität:</label>
+            <div class="stars-input" id="starsInput">
+              <!-- Sternenfunktion zur Auswahl der Priorität -->
+              <i class="far fa-star star" data-star="1"></i>
+              <i class="far fa-star star" data-star="2"></i>
+              <i class="far fa-star star" data-star="3"></i>
+              <i class="far fa-star star" data-star="4"></i>
+              <i class="far fa-star star" data-star="5"></i>
+            </div>
+          </div>
+          <div class="col">
+            <label for="startDateInput" class="form-label">Startdatum:</label>
+            <input type="date" class="form-control" id="startDateInput" required>
+          </div>
+          <div class="col">
+            <label for="endDateInput" class="form-label">Enddatum:</label>
+            <input type="date" class="form-control" id="endDateInput" required>
+          </div>
+          <div class="col">
+            <label for="percentageInput" class="form-label">Prozent(%):</label>
+            <input type="number" class="form-control" id="percentageInput" min="0" max="100" required>
+          </div>
+        </div>
+        <!-- Button zum Hinzufügen einer Aufgabe mit Details -->
+        <button class="btn btn-primary mt-3" id="addTaskWithDetailsBtn">Aufgabe mit Details hinzufügen</button>
+        <!-- Liste für die Aufgaben -->
+        <ul class="list-group mt-4" id="taskList">
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript-Bibliotheken -->
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/dist/lodash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuex/dist/vuex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- JavaScript-Datei -->
+  <script src="main.js"></script>
+</body>
+
+</html>
